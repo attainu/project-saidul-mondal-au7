@@ -1,10 +1,10 @@
-const User = require('../models/User');
-const sendEmail = require('./email.send')
-const msgs = require('./email.msgs')
-const templates = require('./email.templates')
-const logger = require('heroku-logger')
+import User from '../models/User';
+import sendEmail from './email.send';
+import msgs from './email.msgs';
+import templates from './email.templates';
+import logger from 'heroku-logger';
 
-const emailMsgs = require('./email.msgs');
+import emailMsgs from './email.msgs';
 
 // The callback that is invoked when the user submits the form on the client.
 exports.collectEmail = (req, res) => {

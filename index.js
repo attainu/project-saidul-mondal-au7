@@ -1,14 +1,13 @@
-const compression = require('compression');
-const express = require('express');
-const dotenv = require('dotenv');
-dotenv.config();
-const setting = require('./config/checkProd');
-const session = require('express-session');
-const cors = require('cors');
-const helmet = require('helmet');
-const bodyParser = require('body-parser');
-const passport = require('passport');
-const path = require('path');
+import compression from 'compression';
+import express from 'express';
+import setting from './config/checkProd';
+import session from 'express-session';
+import memorystore from 'memorystore';
+import cors from 'cors';
+import helmet from 'helmet';
+import bodyParser from 'body-parser';
+import passport from 'passport';
+import path from 'path';
 require('./src/db/keys')
 // const keys = require('./config/keys');
 
@@ -37,14 +36,19 @@ app.use(bodyParser.json());
 // app.use(express.session({ secret: process.env.secretOrKey }));
 
 // Config express-session
+const MemoryStore = memorystore(session)
 const sessConfig = {
     secret: process.env.SESSION_SECRET,
-    cookie: {},
+    cookie: { secure: true },
+    store: new MemoryStore({
+        checkPeriod: 86400000 // prune expired entries every 24h
+      }),
     resave: false,
     saveUninitialized: true
 };
 
 app.use(session(sessConfig));
+
 
 // Passport Config
 require('./config/userAuth')(passport);

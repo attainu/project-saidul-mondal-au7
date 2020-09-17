@@ -1,24 +1,24 @@
-const express = require('express');
-const router = express.Router();
-const setting = require('../../config/checkProd');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const keys = require('../../config/keys');
-const passport = require('passport');
+import express from 'express';
+import setting from '../../config/checkProd';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import keys from '../../config/keys';
+import passport from 'passport';
 
 // Load email confirmation functions
-const sendEmail = require('../email/email.send');
-const msgs = require('../email/email.msgs');
-const templates = require('../email/email.templates');
+import sendEmail from '../email/email.send';
+import msgs from '../email/email.msgs';
+import templates from '../email/email.templates';
 
 
 // Load Validation
-const validateRegisterInput = require('../validation/registerAuth');
-const validateLoginInput = require('../validation/loginAuth');
+import validateRegisterInput from '../validation/registerAuth';
+import validateLoginInput from '../validation/loginAuth';
 
 // Load User model
-const User = require('../models/User');
+import User from '../models/User';
 
+const router = express.Router();
 // @route   POST api/users/register
 // @desc    Register User
 // @access  Public

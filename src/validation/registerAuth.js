@@ -65,7 +65,7 @@ module.exports = function validateRegisterInput(data) {
         }
     }
 
-    handlePassword = e => {
+    const handlePassword = e => {
     this.setState({ [e.target.name]: e.target.value })
     }
   

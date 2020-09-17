@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
-// const setting = require('../../config/checkProd');
+const setting = require('../../config/checkProd');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-// const keys = require('../../config/keys');
+const keys = require('../../config/keys');
 const passport = require('passport');
 
 // Load email confirmation functions
 const sendEmail = require('../email/email.send');
-// const msgs = require('../email/email.msgs');
+const msgs = require('../email/email.msgs');
 const templates = require('../email/email.templates');
 
 

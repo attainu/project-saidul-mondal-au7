@@ -1,13 +1,14 @@
 import express from 'express';
-import setting from '../../config/checkProd';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import keys from '../../config/keys';
 import passport from 'passport';
+
+import setting from '../../config/checkProd';
+import keys from '../../config/keys';
+
 
 // Load email confirmation functions
 import sendEmail from '../email/email.send';
-import msgs from '../email/email.msgs';
 import templates from '../email/email.templates';
 
 
@@ -19,7 +20,7 @@ import validateLoginInput from '../validation/loginAuth';
 import User from '../models/User';
 
 const router = express.Router();
-// @route   POST api/users/register
+// @route   POST users/register
 // @desc    Register User
 // @access  Public
 router.post('/register', async (req, res, next) => {
@@ -70,7 +71,7 @@ router.post('/register', async (req, res, next) => {
     }
 });
 
-// @route   POST api/users/login
+// @route   POST users/login
 // @desc    Login User / Returning JWT Token
 // @access  Public
 router.post('/login', async (req, res) => {
@@ -134,7 +135,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// @route   GET api/users/current
+// @route   GET users/current
 // @desc    Return current user
 // @access  Private
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -147,7 +148,7 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
    }); 
 });
 
-// @route   POST api/users/admin
+// @route   POST users/admin
 // @desc    Updates the isAdmin property
 // @access  Private
 router.post('/admin', passport.authenticate('jwt', { session: false}), (req, res) => {

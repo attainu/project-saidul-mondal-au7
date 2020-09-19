@@ -6,11 +6,9 @@ import passport from 'passport';
 import setting from '../../config/checkProd';
 import keys from '../../config/keys';
 
-
 // Load email confirmation functions
 import sendEmail from '../email/email.send';
 import templates from '../email/email.templates';
-
 
 // Load Validation
 import validateRegisterInput from '../validation/registerAuth';

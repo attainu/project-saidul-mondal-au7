@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 //Db connection
 
-mongoose.connect(process.env.MONGODB_URL, {
+mongoose.connect(process.env.MONGODB_URL_SET, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,

@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha --require @babel/register --require @babel/polyfill --timeout 15000",
-    "cover": "nyc npm t",
+    "cover": "nyc npm test",
     "start": "nodemon --exec babel-node server.js",
     "dev": "env-cmd -f ./config/dev.env nodemon --exec babel-node server.js"
   },

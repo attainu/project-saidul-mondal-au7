@@ -1,5 +1,5 @@
-application run - npm run dev
+Backend application run - npm run dev
 
-application test - npm run cover
+Backend application test - npm run cover
 
-deployment link - https://tution-media.herokuapp.com/
+Backend deployment link - https://tution-media.herokuapp.com/

@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 // Redux related
 import { Provider } from 'react-redux';
 import store from './redux/store';
+
+//comopnents
+import Register from './components/auth/Register';
 
 class App extends Component {
   render() {
@@ -11,7 +15,11 @@ class App extends Component {
     return (
       <Provider store={ store }>
              <div className="App">
-                ok
+                <Router>
+                  <Switch>
+                    <Route exact path="/register" component={Register} /> 
+                  </Switch>  
+                </Router>
              </div>
       </Provider>
     )
